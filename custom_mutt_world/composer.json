@@ -1,0 +1,14 @@
+{
+  "name": "drupal/custom_mutt_world",
+  "type": "drupal-module",
+  "description": "Custom coding for all the mutts",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/custom_mutt_world",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/custom_mutt_world",
+    "source": "http://cgit.drupalcode.org/custom_mutt_world"
+  },
+  "require": { }
+}

@@ -1,0 +1,5 @@
+name: 'Custom Mutt World'
+type: module
+description: 'Custom coding for all the mutts'
+core: 8.x
+package: 'Custom'

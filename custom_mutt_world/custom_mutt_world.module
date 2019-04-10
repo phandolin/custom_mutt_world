@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_mutt_world.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function custom_mutt_world_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_mutt_world module.
+    case 'help.page.custom_mutt_world':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom coding for all the mutts') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_mutt_world_theme() {
+  return [
+    'custom_mutt_world' => [
+      'render element' => 'children',
+    ],
+  ];
+}
