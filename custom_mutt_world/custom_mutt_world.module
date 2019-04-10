@@ -56,3 +56,54 @@ function custom_mutt_world_form_alter(&$form, FormStateInterface $form_state, $f
 
   }
 }
+
+function custom_mutt_world_entity_display_build_alter(&$build, $context) {
+  // ksm($context['entity']->getEntityTypeId());
+  //display empty fields and labels
+    if ($context['entity']->getEntityTypeId() != 'node' && $context['view_mode'] != 'full') {
+      return;
+    }
+    $node = $context['entity'];
+
+    if ($node->bundle() != 'mutts') {
+      return;
+    }
+
+
+    $field_instances = \Drupal\Core\Entity\Entity\EntityViewDisplay::collectRenderDisplay($node, 'full')->getComponents();
+    //hidden fields naturally wont be in $field_instances
+    foreach ($field_instances as $field_name => $field_instance) {
+      //make sure its a real existant field
+      if (!$node->hasField($field_name)) {
+        continue;
+      }
+
+      if (empty($node->get($field_name)->getValue())) {
+       $type = $node->$field_name->getFieldDefinition()->getType();
+        if ($field_name != 'uid' && $type != 'comment' && $type != 'viewfield') {
+          $label = $node->$field_name->getFieldDefinition()->getLabel();
+          $label_display = $field_instance['label'];
+          $weight = $field_instance['weight'];
+          $is_multiple = FALSE;
+          $build[$field_name] = [
+            '#theme' => 'field',
+            '#title' => $label,
+            '#label_display' => $label_display,
+            '#view_mode' => 'full',
+            '#language' => 'en',
+            '#field_type' => $type,
+            '#field_name' => $field_name,
+            '#entity_type' => 'node',
+            '#is_multiple' => $is_multiple,
+            '#bundle' => $node->bundle(),
+            '#object' => $node,
+            '#items' => [0],
+            '#weight' => $weight,
+            '#comment_display_mode' => '',
+            0 => array('#markup' => '&nbsp;'),
+          ];
+        }
+      }
+    }
+
+}
