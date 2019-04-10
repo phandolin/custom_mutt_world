@@ -43,7 +43,7 @@ function custom_mutt_world_entity_type_alter(array &$entity_types) {
   $entity_types['node']->setFormClass('default', 'Drupal\custom_mutt_world\Form\MuttForm');
 }
 
-function afc_crm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function custom_mutt_world_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   //the form id we are targeting for use in the mutts
   $mutt_form_id = 'node_mutts_form';
@@ -54,12 +54,5 @@ function afc_crm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
     $form['field_body']['#access'] = $access;
 
-  // $form['field_assign_to_department']['#access'] = $access;
-  //  $form['field_comments']['#access'] = $access;
-  //  $form['field_request_type']['#access'] = $access;
-  //  $form['field_status']['#access'] = $access;
-  //  $form['revision_log']['#access'] = $access;
-  //  $form['field_urgent']['#access'] = $access;
-  //  $form['field_manager_email_sent']['#access'] = $access;
   }
 }
