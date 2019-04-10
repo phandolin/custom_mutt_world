@@ -19,7 +19,7 @@ class MuttForm extends NodeForm {
     $form_object = $form_state->getFormObject();
 
     //only continue for our node type
-    if ($this->entity->bundle() != 'mutt') {
+    if ($this->entity->bundle() != 'mutts') {
       return $form;
     }
 
@@ -34,4 +34,3 @@ class MuttForm extends NodeForm {
   }
 
 }
-
