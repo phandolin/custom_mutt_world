@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().
@@ -32,4 +33,31 @@ function custom_mutt_world_theme() {
       'render element' => 'children',
     ],
   ];
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function custom_mutt_world_entity_type_alter(array &$entity_types) {
+  //attach our form class
+  $entity_types['node']->setFormClass('default', 'Drupal\custom_mutt_world\Form\MuttForm');
+}
+
+function afc_crm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  //the form id we are targeting for use in the mutts
+  $mutt_form_id = 'node_mutts_form';
+
+  //if ($form_id == $mutts_form_id) {
+  //  $user = User::load(\Drupal::currentUser()->id());
+  //  $access = $user->hasPermission('access crm');
+
+  //  $form['field_assign_to_department']['#access'] = $access;
+  //  $form['field_comments']['#access'] = $access;
+  //  $form['field_request_type']['#access'] = $access;
+  //  $form['field_status']['#access'] = $access;
+  //  $form['revision_log']['#access'] = $access;
+  //  $form['field_urgent']['#access'] = $access;
+  //  $form['field_manager_email_sent']['#access'] = $access;
+//  }
 }
