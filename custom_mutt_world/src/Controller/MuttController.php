@@ -28,7 +28,7 @@ class MuttController extends ControllerBase {
       '#markup' => $this->t('Let me hear it for the mutts in the back!')
     ];
 
-  $suggestion_view = views_embed_view('mutts', 'block');
+  $suggestion_view = views_embed_view('mutts', 'mutts');
 
   $build['#suggestions'] = [
     'view' => $suggestion_view
