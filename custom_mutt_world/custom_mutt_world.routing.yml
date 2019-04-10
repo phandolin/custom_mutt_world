@@ -1,0 +1,8 @@
+
+custom_mutt_world.mutt_controller_mutt:
+  path: '/mutts'
+  defaults:
+    _controller: '\Drupal\custom_mutt_world\Controller\MuttController::mutt'
+    _title: 'Mutt Controller'
+  requirements:
+    _permission: 'access content'
