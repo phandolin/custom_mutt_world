@@ -24,6 +24,8 @@ class MuttController extends ControllerBase {
 
 
         $mutts_view = views_embed_view('mutts', 'block_1');
+
+        $mutts_view = $mutts_view . "Let me hear it for the mutts in the back!";
         // $build['#mutts'] = [
         //   'view' => $mutts_view
         // ];
