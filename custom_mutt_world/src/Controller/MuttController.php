@@ -31,6 +31,7 @@ class MuttController extends ControllerBase {
           'view' => $mutts_view
         ];
         $build['#theme'] = 'custom_mutt_world';
+        ksm($build);
         return $build;
     } else {
     return [
