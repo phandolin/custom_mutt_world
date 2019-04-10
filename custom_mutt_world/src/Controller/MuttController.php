@@ -21,10 +21,10 @@ class MuttController extends ControllerBase {
   public function mutt() {
     $account = \Drupal::currentUser();
     if($account->hasPermission('access mutts')) {
-      return [
-        '#type' => 'markup',
-        '#markup' => $this->t('Let me hear it for the mutts in the back!')
-      ];
+      // return [
+      //   '#type' => 'markup',
+      //   '#markup' => $this->t('Let me hear it for the mutts in the back!')
+      // ];
 
         $mutts_view = views_embed_view('mutts', 'mutts');
         $build['#mutts'] = [
