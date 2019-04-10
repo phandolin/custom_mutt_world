@@ -1,0 +1,7 @@
+custom_mutt_world:
+  version: 1.x
+  js:
+    js/custom_mutt_world.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
