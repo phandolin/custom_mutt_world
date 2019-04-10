@@ -24,13 +24,13 @@ class MuttController extends ControllerBase {
 
 
         $mutts_view = views_embed_view('mutts', 'block_1');
-        $build['#mutts'] = [
-          'view' => $mutts_view
-        ];
-        $build['#theme'] = 'custom_mutt_world';
-        ksm($build);
+        // $build['#mutts'] = [
+        //   'view' => $mutts_view
+        // ];
+        // $build['#theme'] = 'custom_mutt_world';
+        // ksm($build);
 
-        return $build;
+        return $mutts_view;
         return [
           '#type' => 'markup',
           '#markup' => $this->t('Let me hear it for the mutts in the back!')
