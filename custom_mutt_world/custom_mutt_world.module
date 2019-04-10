@@ -48,16 +48,18 @@ function afc_crm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   //the form id we are targeting for use in the mutts
   $mutt_form_id = 'node_mutts_form';
 
-  //if ($form_id == $mutts_form_id) {
-  //  $user = User::load(\Drupal::currentUser()->id());
-  //  $access = $user->hasPermission('access crm');
+  if ($form_id == $mutts_form_id) {
+    $user = User::load(\Drupal::currentUser()->id());
+    $access = $user->hasPermission('access mutts');
 
-  //  $form['field_assign_to_department']['#access'] = $access;
+    $form['field_body']['#access'] = $access;
+
+  // $form['field_assign_to_department']['#access'] = $access;
   //  $form['field_comments']['#access'] = $access;
   //  $form['field_request_type']['#access'] = $access;
   //  $form['field_status']['#access'] = $access;
   //  $form['revision_log']['#access'] = $access;
   //  $form['field_urgent']['#access'] = $access;
   //  $form['field_manager_email_sent']['#access'] = $access;
-//  }
+  }
 }
