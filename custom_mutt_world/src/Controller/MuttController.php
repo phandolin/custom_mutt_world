@@ -28,10 +28,10 @@ class MuttController extends ControllerBase {
     //   '#markup' => $this->t('Let me hear it for the mutts in the back!')
     // ];
 
-  $suggestion_view = views_embed_view('mutts', 'mutts');
+  $mutts_view = views_embed_view('mutts', 'mutts');
 
-  $build['#suggestions'] = [
-    'view' => $suggestion_view
+  $build['#mutts'] = [
+    'view' => $mutts_view
   ];
 
   $build['#theme'] = 'custom_mutt_world';
