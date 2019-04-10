@@ -18,7 +18,7 @@ class MuttController extends ControllerBase {
   public function mutt() {
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('Implement method: mutt')
+      '#markup' => $this->t('Let me hear it for the mutts in the back!')
     ];
   }
 
