@@ -30,16 +30,17 @@ class MuttController extends ControllerBase {
         // $build['#theme'] = 'custom_mutt_world';
         // ksm($build);
 
-        return $mutts_view.$this->t('Let me hear it for the mutts in the back!');
-        return [
-          '#type' => 'markup',
-          '#markup' => $this->t('Let me hear it for the mutts in the back!')
-        ];
+        return $mutts_view;
+
 
     } else {
     return [
         '#markup' => $this->t('You are not authorized to view these hairy mutts')
     ];
     }
+    return [
+      '#type' => 'markup',
+      '#markup' => $this->t('Let me hear it for the mutts in the back!')
+    ];
   }
 }
