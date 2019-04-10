@@ -22,10 +22,10 @@ class MuttController extends ControllerBase {
     $account = \Drupal::currentUser();
     if(!$account->hasPermission('access mutts')) {
       return [
-        '#markup' => $this->t('You are no authorized to view this page')
+        '#markup' => $this->t('You are no authorized to view these mutts')
       ];
     }
-    if(!$account->hasPermission('access mutts')) {
+    if($account->hasPermission('access mutts')) {
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Let me hear it for the mutts in the back!')
