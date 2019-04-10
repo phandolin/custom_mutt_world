@@ -20,27 +20,22 @@ class MuttController extends ControllerBase {
    */
   public function mutt() {
     $account = \Drupal::currentUser();
-    if(!$account->hasPermission('access mutts')) {
-      return [
-        '#markup' => $this->t('You are no authorized to view these mutts')
-      ];
-    }
     if($account->hasPermission('access mutts')) {
+      return [
+        '#type' => 'markup',
+        '#markup' => $this->t('Let me hear it for the mutts in the back!')
+      ];
+
+        $mutts_view = views_embed_view('mutts', 'mutts');
+        $build['#mutts'] = [
+          'view' => $mutts_view
+        ];
+        $build['#theme'] = 'custom_mutt_world';
+        return $build;
+    } else {
     return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Let me hear it for the mutts in the back!')
+        '#markup' => $this->t('You are no authorized to view these mutts')
     ];
+    }
   }
-
-  $mutts_view = views_embed_view('mutts', 'mutts');
-
-  $build['#mutts'] = [
-    'view' => $mutts_view
-  ];
-
-  $build['#theme'] = 'custom_mutt_world';
-  // $build['#attached']['library'][] = 'afc_crm/crm';
-  return $build;
-}
-
 }
